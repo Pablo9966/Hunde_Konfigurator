@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+
+    <title>Hunde Konfigurator</title>
+
+</head>
+<body>
+    <div class="container" >
+        <h1 class="display-3 mt-5"></h1>
+            <h1>Finde jetzt deinen perfekten Hund!</h1>
+            <h3>Was beschreibt am Besten die Situation bei dir zu Hause?</h3>
+            <form method="Post">
+                <input type="radio" name="frage6" value="1">Full House: Es ist immer etwas los</input><br>
+                <input type="radio" name="frage6" value="2">Familienlegen wird grossgeschrieben</input><br>
+                <input type="radio" name="frage6" value="3">Ruhiger Haushalt mit wenig Trubel</input><br>
+                <input type="submit" name="frage_einlesen">
+            </form>
+        <button type="button" onclick="window.location.href='{{ url_for( 'frage7' ) }}';">Nächste Frage</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+	"1": {
+		"Frage": "Welche Grösse sollte dein Hund haben?",
+		"Antwort": [
+			["Klein"],
+			["Mittel"],
+			["Gross"],
+			["Ist mir egal"]
+		]
+	},
+
+	"2": {
+		"Frage": "Welches Fell gefällt dir am besten?",
+		"Antwort": [
+			["Kurz"],
+			["Mittel"],
+			["Lang"],
+			["Ist mir egal"]
+		]
+	},
+
+	"3": {
+		"Frage": "Wie viel Zeit pro Tag hast du Zeit für den Hund?",
+		"Antwort": [
+			["1"],
+			["2"],
+			["3"],
+			["4"]
+		]
+	},
+
+	"4": {
+		"Frage": "Wie viel Zeit möchtest du pro Woche für die Pflege des Hundes auswenden?",
+		"Antwort": [
+			["0-1"],
+			["1-2"],
+			["2-3"],
+			["> 3"]
+		]
+	},
+
+	"5": {
+		"Frage": "Welche Charakteristik sollte dein Hund in jedem Fall haben?",
+		"Antwort": [
+			["Wachhund"],
+			["Hütehund"],
+			["Jagthund"],
+			["Für mich unwichtig"]
+		]
+	},
+
+	"6": {
+		"Frage": "Was beschreibt am Besten die Situation bei dir zu Hause?",
+		"Antwort": [
+			["Full House: Es ist immer etwas los"],
+			["Familienlegen wird grossgeschrieben"],
+			["Ruhiger Haushalt mit wenig Trubel"]
+		]
+	},
+
+	"7": {
+		"Frage": "Leben Kinder im Haushalt und sollte der Hund daher familienfreundlich sein?",
+		"Antwort": [
+			["Ja"],
+			["Nein"]
+		]
+	}
+}
