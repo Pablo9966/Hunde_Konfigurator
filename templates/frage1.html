@@ -1,22 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
- <div class="container" style="text-align:center;">
+ <div class="container">
         <div id="titel">
             <h1 >Finde jetzt deinen perfekten Hund!</h1>
             <hr>
         </div>
-     <div id="fragen"
+     <div id="fragen">
             <section>
                 <h3>Welche Grösse sollte dein Hund haben?</h3>
                 <form method="Post">
-                         <input type="radio" name="frage1" value="klein">Klein</input>
-                         <input type="radio" name="frage1" value="mittel">Mittel</input>
-                         <input type="radio" name="frage1" value="gross">Gross</input>
-                         <input type="radio" name="frage1" value="none">Ist mir egal</input>
-                    <div class="form-row">
-                            <input type="submit" name="frage_einlesen">
-                    </div>
+                         <input type="submit" name="frage1" value="A">Klein</input><br>
+                         <input type="submit" name="frage1" value="B">Mittel</input><br>
+                         <input type="submit" name="frage1" value="C">Gross</input><br>
                     <div class="form-row">
                             <button type="button" onclick="window.location.href='{{ url_for( 'frage2' ) }}';">Nächste Frage</button>
                     </div>

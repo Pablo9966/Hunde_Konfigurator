@@ -4,14 +4,12 @@
     <div class="container" >
         <h1 class="display-3 mt-5"></h1>
             <h1>Finde jetzt deinen perfekten Hund!</h1>
-            <h3>Was beschreibt am Besten die Situation bei dir zu Hause?</h3>
+            <h3>Leben Kinder im Haushalt und sollte der Hund daher familienfreundlich sein?</h3>
             <form method="Post">
-                <input type="radio" name="frage6" value="1">Full House: Es ist immer etwas los</input><br>
-                <input type="radio" name="frage6" value="2">Familienlegen wird grossgeschrieben</input><br>
-                <input type="radio" name="frage6" value="3">Ruhiger Haushalt mit wenig Trubel</input><br>
-                <input type="submit" name="frage_einlesen">
+                <input type="submit" name="frage6" value="A">Ja</input><br>
+                <input type="submit" name="frage6" value="B">Nein</input><br>
             </form>
-        <button type="button" onclick="window.location.href='{{ url_for( 'frage7' ) }}';">Nächste Frage</button>
+        <button type="button" onclick="window.location.href='{{ url_for( 'antwort' ) }}';">Nächste Frage</button>
     </div>
 
 {% endblock %}

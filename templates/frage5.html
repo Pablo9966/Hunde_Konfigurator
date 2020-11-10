@@ -6,11 +6,10 @@
             <h1>Finde jetzt deinen perfekten Hund!</h1>
             <h3>Welche Charakteristik sollte dein Hund in jedem Fall haben?</h3>
             <form method="Post">
-                <input type="radio" name="frage5" value="wachhund">Wachhund</input><br>
-                <input type="radio" name="frage5" value="huetehund">Hütehund</input><br>
-                <input type="radio" name="frage5" value="jagthund">Jagthund</input><br>
-                <input type="radio" name="frage5" value="none">Ist mir egal</input><br>
-                <input type="submit" name="frage_einlesen">
+                <input type="submit" name="frage5" value="A">Wachhund</input><br>
+                <input type="submit" name="frage5" value="B">Hütehund</input><br>
+                <input type="submit" name="frage5" value="C">Jagthund</input><br>
+                <input type="submit" name="frage5" value="D">Ist mir egal</input><br>
             </form>
         <button type="button" onclick="window.location.href='{{ url_for( 'frage6' ) }}';">Nächste Frage</button>
     </div>

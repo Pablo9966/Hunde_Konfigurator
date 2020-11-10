@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 import Daten_Antworten
+import hund_überprüfen
 
 """
 Hier importieren wir die Files mit den Fragen. Die Files wurden als json geschrieben
@@ -22,7 +23,7 @@ def home():
 @app.route('/frage1', methods=['GET', 'POST'])
 def frage1():
     if request.method == 'POST':
-        antwort_frage1 = request.form.getlist('frage1')
+        antwort_frage1 = request.form['frage1']
 
         Daten_Antworten.antwortensichern(antwort_frage1)
 
@@ -32,7 +33,7 @@ def frage1():
 @app.route('/frage2', methods=['GET', 'POST'])
 def frage2():
     if request.method == 'POST':
-        antwort_frage2 = request.form.getlist('frage2')
+        antwort_frage2 = request.form['frage2']
 
         Daten_Antworten.antwortensichern(antwort_frage2)
 
@@ -42,7 +43,7 @@ def frage2():
 @app.route('/frage3', methods=['GET', 'POST'])
 def frage3():
     if request.method == 'POST':
-        antwort_frage3 = request.form.getlist('frage3')
+        antwort_frage3 = request.form['frage3']
 
         Daten_Antworten.antwortensichern(antwort_frage3)
 
@@ -52,7 +53,7 @@ def frage3():
 @app.route('/frage4', methods=['GET', 'POST'])
 def frage4():
     if request.method == 'POST':
-        antwort_frage4 = request.form.getlist('frage4')
+        antwort_frage4 = request.form['frage4']
 
         Daten_Antworten.antwortensichern(antwort_frage4)
 
@@ -62,7 +63,7 @@ def frage4():
 @app.route('/frage5', methods=['GET', 'POST'])
 def frage5():
     if request.method == 'POST':
-        antwort_frage5 = request.form.getlist('frage5')
+        antwort_frage5 = request.form['frage5']
 
         Daten_Antworten.antwortensichern(antwort_frage5)
 
@@ -72,27 +73,20 @@ def frage5():
 @app.route('/frage6', methods=['GET', 'POST'])
 def frage6():
     if request.method == 'POST':
-        antwort_frage6 = request.form.getlist('frage6')
+        antwort_frage6 = request.form['frage6']
 
         Daten_Antworten.antwortensichern(antwort_frage6)
 
     return render_template('frage6.html')
 
 
-@app.route('/frage7', methods=['GET', 'POST'])
-def frage7():
-    if request.method == 'POST':
-        antwort_frage7 = request.form.getlist('frage7')
-
-        Daten_Antworten.antwortensichern(antwort_frage7)
-
-    return render_template('frage7.html')
-
-
 
 @app.route('/antwort')
 def antwort():
-    return render_template('antwort.html')
+    hund_überprüfen.hundueberpruefen()
+
+
+    return render_template('antwort.html', antwort=antwort)
 
 
 if __name__ == "__main__":

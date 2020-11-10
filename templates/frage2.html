@@ -6,11 +6,9 @@
             <h1>Finde jetzt deinen perfekten Hund!</h1>
             <h3>Welches Fell gefällt dir am besten?</h3>
             <form method="Post">
-                <input type="radio" name="frage2" value="kurz">Kurz</input><br>
-                <input type="radio" name="frage2" value="mittel">Mittel</input><br>
-                <input type="radio" name="frage2" value="lang">Lang</input><br>
-                <input type="radio" name="frage2" value="none">Ist mir egal</input><br>
-                <input type="submit" name="frage_einlesen">
+                <input type="submit" name="frage2" value="A">Kurz</input><br>
+                <input type="submit" name="frage2" value="B">Mittel</input><br>
+                <input type="submit" name="frage2" value="C">Lang</input><br>
             </form>
         <button type="button" onclick="window.location.href='{{ url_for( 'frage3' ) }}';">Nächste Frage</button>
     </div>

@@ -1,34 +1,43 @@
 import Daten_Antworten
-import csv
-import _json
+import hunderassen
+
+antwort = Daten_Antworten.Antworten_liste
+
+Labrador = hunderassen.Labrador
+Französische_Bulldogge = hunderassen.Französische_Bulldogge
+Chihuahua = hunderassen.Chihuahua
+Golden_Retriever = hunderassen.Golden_Retriever
+Australian_Shepherd = hunderassen.Australian_Shepherd
+Jack_Russel = hunderassen.Jack_Russel
+Deutscher_Schäferhund = hunderassen.Deutscher_Schäferhund
+Havaneser = hunderassen.Havaneser
+Yorkshire_Terrier = hunderassen.Yorkshire_Terrier
+Malteser = hunderassen.Malteser
+Border_Collie = hunderassen.Border_Collie
+Mops = hunderassen.Mops
+Beagle = hunderassen.Beagle
+Rhodesian_Ridgeback = hunderassen.Rhodesian_Ridgeback
+Berner_Sennenhund = hunderassen.Berner_Sennenhund
+Dackel = hunderassen.Dackel
+Rottweiler = hunderassen.Rottweiler
+Dobermann = hunderassen.Dobermann
+Zwergspitz = hunderassen.Zwergspitz
+Boxer = hunderassen.Boxer
+
+
+def hundueberpruefen():
+    if antwort == Labrador:
+        print('Hat funktioniert')
+    else:
+        print('Hat nicht funktioniert')
+
+print(hundueberpruefen())
 
 '''
-csvFilePath = 'Hunderassen1.csv'
-jsonFilePath = 'hunderassen.json'
-
-data = {}
-
-with open(csvFilePath) as csvFile:
-    csvReader = csv.DictReader(csvFile)
-    for rows in csvReader:
-        id = rows['id']
-        data[id] = rows
-
-with open(jsonFilePath, 'w') as jsonFile:
-    jsonFile.write(json.dumps(data, indent=4))
+def hundueberpruefen():
+    if len(antwortenquiz) == len(Labrador) and len(antwortenquiz) == sum(
+            [1 for i, j in zip(antwortenquiz, Labrador) if i == j]):
+        print("The lists are identical")
+    else:
+        print("The lists are not identical")
 '''
-
-'''
-with open('Hunderassen1.csv', mode='r') as infile:
-    reader = csv.reader(infile)
-    with open('Hunderassen1.csv', mode='w') as outfile:
-        writer = csv.writer(outfile)
-        mydict = {rows[0]:rows[20] for rows in reader}
-        print(mydict)
-'''
-
-with open('Hunderassen1.csv', newline='') as f:
-    reader = csv.reader(f)
-    data = list(reader)
-
-print(data)
