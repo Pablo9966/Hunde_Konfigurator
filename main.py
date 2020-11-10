@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-import daten
 import Daten_Antworten
 
 """
@@ -88,6 +87,12 @@ def frage7():
         Daten_Antworten.antwortensichern(antwort_frage7)
 
     return render_template('frage7.html')
+
+
+
+@app.route('/antwort')
+def antwort():
+    return render_template('antwort.html')
 
 
 if __name__ == "__main__":
