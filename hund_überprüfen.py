@@ -25,13 +25,19 @@ Zwergspitz = hunderassen.Zwergspitz
 Boxer = hunderassen.Boxer
 
 
+
 def hundueberpruefen():
     if antwort == Labrador:
-        print('Hat funktioniert')
-    else:
-        print('Hat nicht funktioniert')
+        hund = 'Labrador'
 
-print(hundueberpruefen())
+    elif antwort == Französische_Bulldogge:
+        hund = 'Französische Bulldogge'
+
+    elif antwort == Chihuahua:
+        hund = 'Chihuahua'
+    else:
+        hund = 'probier es noch einmal'
+    antwort.clear()
 
 '''
 def hundueberpruefen():
