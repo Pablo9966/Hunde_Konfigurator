@@ -1,13 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1> Hier ist eine Liste von Hunden, welche am besten zu dir passen: </h1>
-<p>Bitte beachte, dass die Hunde, anhand deiner Angaben, der Reihe nach sortiert wurden. </p>
-    <ul>
-        {%- for ding in geordnete_rangordnung -%}
-            <li>{{ ding }}</li>
-        {% endfor %}
-    </ul>
+<div class="container">
+        <div id="titel">
+            <h1 >Hier ist eine Liste von Hunden, welche am besten zu dir passen</h1>
+            <hr>
+        </div>
+         <div id="fragen">
+            <section>
+                <h3>Bitte beachte, dass die Hunde, anhand deiner Angaben, der Reihe nach sortiert wurden. </h3>
+                    <ul class="list-group">
+                        {%- for ding in geordnete_rangordnung -%}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">{{ ding }}
+                            <span class="badge badge-primary badge-pill">14</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+            </section>
+         </div>
+</div>
 
 
 {% endblock %}

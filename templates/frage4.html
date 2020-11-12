@@ -1,17 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container" >
-        <h1 class="display-3 mt-5"></h1>
-            <h1>Finde jetzt deinen perfekten Hund!</h1>
-            <h3>Wie viel Zeit möchtest du pro Woche für die Pflege des Hundes auswenden?</h3>
-            <form method="Post">
-                <input type="submit" name="frage4" value="A">1 Stunde</input><br>
-                <input type="submit" name="frage4" value="B">2 Stunden</input><br>
-                <input type="submit" name="frage4" value="C">3 Stunden</input><br>
-                <input type="submit" name="frage4" value="D">4 Stunden</input><br>
-            </form>
-        <button type="button" onclick="window.location.href='{{ url_for( 'frage5' ) }}';">Nächste Frage</button>
+
+  <div class="container">
+        <div id="titel">
+            <h1 >Finde jetzt deinen perfekten Hund!</h1>
+            <hr>
+        </div>
+     <div id="fragen">
+            <section>
+                <h3>Wie viel Zeit möchtest du pro Woche für die Pflege des Hundes auswenden?</h3>
+                <form method="Post">
+                    <div class="box">
+                        <input type="submit" class="btn btn-primary" name="frage4" value="A"><font size="5">1 Stunde</font></input><br>
+                        <input type="submit" class="btn btn-primary" name="frage4" value="B"><font size="5">2 Stunde</font></input><br>
+                        <input type="submit" class="btn btn-primary" name="frage4" value="C"><font size="5">3 Stunde</font></input><br>
+                        <input type="submit" class="btn btn-primary" name="frage4" value="D"><font size="5">4 Stunde</font></input><br>
+                    </div>
+                </form>
+            </section>
+        <button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='{{ url_for( 'frage5' ) }}';">Nächste Frage</button>
     </div>
 
 {% endblock %}

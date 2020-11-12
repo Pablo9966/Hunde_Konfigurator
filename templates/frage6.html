@@ -1,15 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container" >
-        <h1 class="display-3 mt-5"></h1>
-            <h1>Finde jetzt deinen perfekten Hund!</h1>
-            <h3>Leben Kinder im Haushalt und sollte der Hund daher familienfreundlich sein?</h3>
-            <form method="Post">
-                <input type="submit" name="frage6" value="A">Ja</input><br>
-                <input type="submit" name="frage6" value="B">Nein</input><br>
-            </form>
-        <button type="button" onclick="window.location.href='{{ url_for( 'antwort' ) }}';">Nächste Frage</button>
+ <div class="container">
+        <div id="titel">
+            <h1 >Finde jetzt deinen perfekten Hund!</h1>
+            <hr>
+        </div>
+     <div id="fragen">
+            <section>
+                <h3>Leben Kinder im Haushalt und sollte der Hund daher familienfreundlich sein?</h3>
+                <form method="Post">
+                    <div class="row">
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-header">
+                                <h4 class="card-title">Ja</h4>
+                            </div>
+                            <div class="box" style="width: 100%; height: 200px;">
+                                <img src="{{ url_for('static', filename = 'images/Hund-und-kinder.jpg') }}" style="width: 100%; height: 100%;">
+                            </div>
+                          <div class="card-body">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage6" value="A"></input>
+                          </div>
+                        </div>
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-header">
+                                <h4 class="card-title">Nein</h4>
+                            </div>
+                            <div class="box" style="width: 100%; height: 200px;">
+                                <img src="{{ url_for('static', filename = 'images/Startbild_Hund relaxt am Strand_facebook.jpg') }}" style="width: 100%; height: 100%;">
+                            </div>
+                          <div class="card-body">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage6" value="B"></input>
+                          </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='{{ url_for( 'antwort' ) }}';">Zur Auswertung</button>
+                </form>
+            </section>
+        </div>
     </div>
+ </div>
 
 {% endblock %}

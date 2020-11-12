@@ -179,6 +179,7 @@ def antwort():
     rang_19 = len(result_19)
     rangordnung['Boxer'] = rang_19
 
+
 #Hier ordne ich das Dictionary nach der Anzahl Übereinstimmungen
     geordnete_rangordnung = collections.OrderedDict(sorted(rangordnung.items(), key=operator.itemgetter(1)))
 
@@ -187,4 +188,4 @@ def antwort():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5010)
+    app.run(debug=True, port=5016)

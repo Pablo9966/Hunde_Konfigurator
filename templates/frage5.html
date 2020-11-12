@@ -1,17 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container" >
-        <h1 class="display-3 mt-5"></h1>
-            <h1>Finde jetzt deinen perfekten Hund!</h1>
-            <h3>Welche Charakteristik sollte dein Hund in jedem Fall haben?</h3>
-            <form method="Post">
-                <input type="submit" name="frage5" value="A">Wachhund</input><br>
-                <input type="submit" name="frage5" value="B">Hütehund</input><br>
-                <input type="submit" name="frage5" value="C">Jagthund</input><br>
-                <input type="submit" name="frage5" value="D">Ist mir egal</input><br>
-            </form>
-        <button type="button" onclick="window.location.href='{{ url_for( 'frage6' ) }}';">Nächste Frage</button>
+
+<div class="container">
+        <div id="titel">
+            <h1 >Finde jetzt deinen perfekten Hund!</h1>
+            <hr>
+        </div>
+     <div id="fragen">
+            <section>
+                <h3>Welche Charakteristik sollte dein Hund in jedem Fall haben?</h3>
+                <form method="Post">
+                    <div class="row">
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-header">
+                                <h4 class="card-title">Wachhund</h4>
+                            </div>
+                            <div class="box" style="width: 100%; height: 200px;">
+                                <img src="{{ url_for('static', filename = 'images/wachhund-rottweiler.jpg') }}" style="width: 100%; height: 100%;">
+                            </div>
+                          <div class="card-body">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage5" value="A"></input>
+                          </div>
+                        </div>
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-header">
+                                <h4 class="card-title">Hütehund</h4>
+                            </div>
+                            <div class="box" style="width: 100%; height: 200px;">
+                                <img src="{{ url_for('static', filename = 'images/der-border-collie-ist-eine-treue-seele-.jpg') }}" style="width: 100%; height: 100%;">
+                            </div>
+                          <div class="card-body">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage5" value="B"></input>
+                          </div>
+                        </div>
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-header">
+                                <h4 class="card-title">Jagthund</h4>
+                            </div>
+                            <div class="box" style="width: 100%; height: 200px;">
+                                <img src="{{ url_for('static', filename = 'images/rhodesian-ridgeback-678x381.jpg') }}" style="width: 100%; height: 100%;">
+                            </div>
+                          <div class="card-body">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage5" value="C"></input>
+                          </div>
+                        </div>
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-header">
+                                <h4 class="card-title">Ist mir egal</h4>
+                            </div>
+                            <div class="box" style="width: 100%; height: 200px;">
+                                <img src="{{ url_for('static', filename = 'images/maxresdefault.jpg') }}" style="width: 100%; height: 100%;">
+                            </div>
+                          <div class="card-body">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage5" value="D"></input>
+                          </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='{{ url_for( 'frage6' ) }}';">Nächste Frage</button>
+                </form>
+            </section>
+        </div>
     </div>
+ </div>
+
 
 {% endblock %}te
