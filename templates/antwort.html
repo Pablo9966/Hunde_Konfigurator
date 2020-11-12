@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p>Dein perfekter Hund ist {{ hund }}</p>
+<h1> Hier ist eine Liste von Hunden, welche am besten zu dir passen: </h1>
+<p>Bitte beachte, dass die Hunde, anhand deiner Angaben, der Reihe nach sortiert wurden. </p>
+    <ul>
+        {%- for ding in geordnete_rangordnung -%}
+            <li>{{ ding }}</li>
+        {% endfor %}
+    </ul>
+
 
 {% endblock %}

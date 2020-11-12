@@ -1,19 +1,17 @@
+#zuerst importiere ich alle nötigen Funktionen und Dokumente
 from flask import Flask
 from flask import render_template
 from flask import request
 import Daten_Antworten
 import hunderassen
+import collections
+import operator
 
-"""
-Hier importieren wir die Files mit den Fragen. Die Files wurden als json geschrieben
-und können daher importiert und wie Dictionaries behandelt werden.
-Wenn die Files nicht richtig importiert werden können,
-wird durch das Try and Except eine Fehlermeldung ausgegeben.
-"""
 
 app = Flask("Hunde Konfigurator")
 
 antworten = Daten_Antworten.Antworten_liste
+rangordnung = {}
 
 
 @app.route('/')
@@ -85,74 +83,108 @@ def frage6():
 
 @app.route('/antwort')
 def antwort():
-    if antworten == hunderassen.Labrador:
-        hund = 'Labrador'
 
-    elif antworten == hunderassen.Französische_Bulldogge:
-        hund = 'Französische Bulldogge'
+#Labrador berechnen
+    result_1 = [i for i, j in zip(hunderassen.Labrador, antworten) if i == j]
+    rang_1 = len(result_1)
+    rangordnung['Labrador'] = rang_1
 
-    elif antworten == hunderassen.Chihuahua:
-        hund = 'Chihuahua'
+#Französische Bulldogge brechnen
+    result_2 = [i for i, j in zip(hunderassen.Französische_Bulldogge, antworten) if i == j]
+    rang_2 = len(result_2)
+    rangordnung['Französische Bulldogge'] = rang_2
 
-    elif antworten == hunderassen.Golden_Retriever:
-        hund = 'Golden Retriever'
+#Chihuahua berechnen
+    result_3 = [i for i, j in zip(hunderassen.Chihuahua, antworten) if i == j]
+    rang_3 = len(result_3)
+    rangordnung['Chihuahua'] = rang_3
 
-    elif antworten == hunderassen.Australian_Shepherd:
-        hund = 'Australian_Shepherd'
+#Golden Retriever berechnen
+    result_4 = [i for i, j in zip(hunderassen.Golden_Retriever, antworten) if i == j]
+    rang_4 = len(result_4)
+    rangordnung['Golden Retriever'] = rang_4
 
-    elif antworten == hunderassen.Jack_Russel:
-        hund = 'Jack Russel'
+#Australian Shepherd berechnen
+    result_5 = [i for i, j in zip(hunderassen.Australian_Shepherd, antworten) if i == j]
+    rang_5 = len(result_5)
+    rangordnung['Australian Shepherd'] = rang_5
 
-    elif antworten == hunderassen.Deutscher_Schäferhund:
-        hund = 'Deutscher Schäferhund'
+#Jack Russel berechnen
+    result_6 = [i for i, j in zip(hunderassen.Jack_Russel, antworten) if i == j]
+    rang_6 = len(result_6)
+    rangordnung['Jack Russel'] = rang_6
 
-    elif antworten == hunderassen.Havaneser:
-        hund = 'Havaneser'
+#Deutscher Schäferhund berechnen
+    result_7 = [i for i, j in zip(hunderassen.Deutscher_Schäferhund, antworten) if i == j]
+    rang_7 = len(result_7)
+    rangordnung['Deutscher Schäferhund'] = rang_7
 
-    elif antworten == hunderassen.Yorkshire_Terrier:
-        hund = 'Yorkshire Terrier'
+#Havaneser berechnen
+    result_8 = [i for i, j in zip(hunderassen.Havaneser, antworten) if i == j]
+    rang_8 = len(result_8)
+    rangordnung['Havaneser'] = rang_8
 
-    elif antworten == hunderassen.Malteser:
-        hund = 'Malteser'
+#Yorkshire Terrier berechnen
+    result_9 = [i for i, j in zip(hunderassen.Yorkshire_Terrier, antworten) if i == j]
+    rang_9 = len(result_9)
+    rangordnung['Yorkshire Terrier'] = rang_9
 
-    elif antworten == hunderassen.Border_Collie:
-        hund = 'Border Collie'
+#Malteser berechnen
+    result_10 = [i for i, j in zip(hunderassen.Malteser, antworten) if i == j]
+    rang_10 = len(result_10)
+    rangordnung['Malteser'] = rang_10
 
-    elif antworten == hunderassen.Mops:
-        hund = 'Mops'
+#Border Collie berechnen
+    result_11 = [i for i, j in zip(hunderassen.Border_Collie, antworten) if i == j]
+    rang_11 = len(result_11)
+    rangordnung['Border Collie'] = rang_11
 
-    elif antworten == hunderassen.Beagle:
-        hund = 'Beagle'
+#Mops berechnen
+    result_12 = [i for i, j in zip(hunderassen.Mops, antworten) if i == j]
+    rang_12 = len(result_12)
+    rangordnung['Mops'] = rang_12
 
-    elif antworten == hunderassen.Rhodesian_Ridgeback:
-        hund = 'Rhodesian Ridgeback'
+#Beagle berechnen
+    result_13 = [i for i, j in zip(hunderassen.Beagle, antworten) if i == j]
+    rang_13 = len(result_13)
+    rangordnung['Beagle'] = rang_13
 
-    elif antworten == hunderassen.Berner_Sennenhund:
-        hund = 'Berner Sennenhund'
+#Rhodesian Ridgeback berechnen
+    result_14 = [i for i, j in zip(hunderassen.Rhodesian_Ridgeback, antworten) if i == j]
+    rang_14 = len(result_14)
+    rangordnung['Rhodesian Ridgeback'] = rang_14
 
-    elif antworten == hunderassen.Dackel:
-        hund = 'Dackel'
+#Berner Sennenhund berechnen
+    result_15 = [i for i, j in zip(hunderassen.Berner_Sennenhund, antworten) if i == j]
+    rang_15 = len(result_15)
+    rangordnung['Berner Sennenhund'] = rang_15
 
-    elif antworten == hunderassen.Rottweiler:
-        hund = 'Rottweiler'
+#Dackel berechnen
+    result_16 = [i for i, j in zip(hunderassen.Dackel, antworten) if i == j]
+    rang_16 = len(result_16)
+    rangordnung['Dackel'] = rang_16
 
-    elif antworten == hunderassen.Dobermann:
-        hund = 'Dobermann'
+#Rottweiler Berechnen
+    result_17 = [i for i, j in zip(hunderassen.Rottweiler, antworten) if i == j]
+    rang_17 = len(result_17)
+    rangordnung['Rottweiler'] = rang_17
 
-    elif antworten == hunderassen.Zwergspitz:
-        hund = 'Zwergspitz'
+#Zwergspitz berechnen
+    result_18 = [i for i, j in zip(hunderassen.Zwergspitz, antworten) if i == j]
+    rang_18 = len(result_18)
+    rangordnung['Zwergspitz'] = rang_18
 
-    elif antworten == hunderassen.Boxer:
-        hund = 'Zwergspitz'
+#Boxer berechnen
+    result_19 = [i for i, j in zip(hunderassen.Boxer, antworten) if i == j]
+    rang_19 = len(result_19)
+    rangordnung['Boxer'] = rang_19
 
-    else: hund = 'Leider gibt es keinen passenden Hund für Sie. Bitte probieren Sie es erneut.'
+#Hier ordne ich das Dictionary nach der Anzahl Übereinstimmungen
+    geordnete_rangordnung = collections.OrderedDict(sorted(rangordnung.items(), key=operator.itemgetter(1)))
 
-    '''
-    hund_überprüfen.hundueberpruefen()
-    '''
 
-    return render_template('antwort.html', antwort=antwort, hund=hund)
+    return render_template('antwort.html', rangordnung=rangordnung, geordnete_rangordnung=geordnete_rangordnung)
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5008)
+    app.run(debug=True, port=5010)
