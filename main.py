@@ -181,11 +181,14 @@ def antwort():
 
 
 #Hier ordne ich das Dictionary nach der Anzahl Übereinstimmungen
-    geordnete_rangordnung = collections.OrderedDict(sorted(rangordnung.items(), key=operator.itemgetter(1)))
+    geordnete_rangordnung = collections.OrderedDict(sorted(rangordnung.items(), key=operator.itemgetter(1), reverse=True))
 
+#Hier hole ich die Anzahl Übereinstimmungen hervor
+    anzahl_uebereinstimmungen = geordnete_rangordnung.values()
+    print(anzahl_uebereinstimmungen)
 
-    return render_template('antwort.html', rangordnung=rangordnung, geordnete_rangordnung=geordnete_rangordnung)
+    return render_template('antwort.html', rangordnung=rangordnung, geordnete_rangordnung=geordnete_rangordnung, anzahl_uebereinstimmungen=anzahl_uebereinstimmungen, zip=zip)
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5016)
+    app.run(debug=True, port=5017)
