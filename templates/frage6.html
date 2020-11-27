@@ -1,4 +1,9 @@
+<!-- hier ist die Frage 6 -->
+
+<!-- hier verlinke ich zum base-dokument -->
 {% extends "base.html" %}
+
+<!-- hier erstelle ich den Inhalt, welcher präsentiert werden soll -->
 {% block content %}
 
  <div class="container">
@@ -16,9 +21,15 @@
                                 <h4 class="card-title">Ja</h4>
                             </div>
                             <div class="box" style="width: 100%; height: 200px;">
+
+                                <!-- hier lade ich das Bild zum kinderfreundlich hoch -->
+
                                 <img src="{{ url_for('static', filename = 'images/Hund-und-kinder.jpg') }}" style="width: 100%; height: 100%;">
                             </div>
                           <div class="card-body">
+
+                              <!-- Hier erstelle ich einen submit button, welchem ich den value "A" gebe. Dieser Value wird dann abgespeichert und mit den Hunden auf Übereinstimmungen überprüft -->
+
                             <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage6" value="A"></input>
                           </div>
                         </div>
@@ -27,13 +38,22 @@
                                 <h4 class="card-title">Nein</h4>
                             </div>
                             <div class="box" style="width: 100%; height: 200px;">
+
+                                <!-- hier lade ich das Bild zum nicht kinderfreundlich hoch -->
+
                                 <img src="{{ url_for('static', filename = 'images/Startbild_Hund relaxt am Strand_facebook.jpg') }}" style="width: 100%; height: 100%;">
                             </div>
                           <div class="card-body">
+
+                              <!-- Hier erstelle ich einen submit button, welchem ich den value "B" gebe. Dieser Value wird dann abgespeichert und mit den Hunden auf Übereinstimmungen überprüft -->
+
                             <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage6" value="B"></input>
                           </div>
                         </div>
                     </div>
+
+                    <!-- hier erstelle ich einen Button, welcher zur nächsten Frage weiterleitet -->
+
                     <button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='{{ url_for( 'antwort' ) }}';">Zur Auswertung</button>
                 </form>
             </section>
@@ -41,4 +61,5 @@
     </div>
  </div>
 
+<!-- hier endet der Inhalt -->
 {% endblock %}

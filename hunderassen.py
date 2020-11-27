@@ -1,3 +1,5 @@
+#Hier sind die Hunde definiert. für eine einfachere Überprüfung wurde nur mit 'A'-'D' gearbeitet, anstatt mit Wörtern
+
 Labrador = ["B", "A", "C", "B", "D", "A"]
 Französische_Bulldogge = ["A", "A", "B", "A", "D", "B"]
 Chihuahua = ["A", "B", "B", "B", "D", "B"]

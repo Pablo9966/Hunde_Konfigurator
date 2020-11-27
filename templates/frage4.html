@@ -1,4 +1,9 @@
+<!-- hier ist die Frage 4 -->
+
+<!-- hier verlinke ich zum base-dokument -->
 {% extends "base.html" %}
+
+<!-- hier erstelle ich den Inhalt, welcher präsentiert werden soll -->
 {% block content %}
 
 
@@ -12,6 +17,9 @@
                 <h3>Wie viel Zeit möchtest du pro Woche für die Pflege des Hundes auswenden?</h3>
                 <form method="Post">
                     <div class="box">
+
+                        <!-- Hier erstelle ich vier submit buttons, welche die Values A,B,C,D besitzen. Diese Values werden dann abgespeichert und mit den Hunden auf Übereinstimmungen überprüft -->
+
                         <input type="submit" class="btn btn-primary" name="frage4" value="A"><font size="5">1 Stunde</font></input><br>
                         <input type="submit" class="btn btn-primary" name="frage4" value="B"><font size="5">2 Stunde</font></input><br>
                         <input type="submit" class="btn btn-primary" name="frage4" value="C"><font size="5">3 Stunde</font></input><br>
@@ -19,7 +27,12 @@
                     </div>
                 </form>
             </section>
+
+         <!-- hier erstelle ich einen Button, welcher zur nächsten Frage weiterleitet -->
+
         <button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='{{ url_for( 'frage5' ) }}';">Nächste Frage</button>
     </div>
+  </div>
 
+      <!-- hier endet der Inhalt -->
 {% endblock %}

@@ -1,3 +1,5 @@
+<!-- hier ist das base-dokument. Hier ist die komplette HTML-Logik verpackt und in den weiteren html dokumenten wird nur noch der Body abgefüllt -->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,10 +8,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- STYLE CSS -->
+		<!-- Bootsrap -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+		<!-- eigenes CSS -->
 		<link rel="stylesheet" href="static/css/style.css">
+
 	</head>
 	<body>
+
+<!-- Hier lasse ich den Platz frei für die einzelnen Seiten -->
+
 		{% block content %}
 		{% endblock %}
 

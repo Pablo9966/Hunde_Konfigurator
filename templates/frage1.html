@@ -1,4 +1,9 @@
+<!-- hier ist die Frage 1 -->
+
+<!-- hier verlinke ich zum base-dokument -->
 {% extends "base.html" %}
+
+<!-- hier erstelle ich den Inhalt, welcher präsentiert werden soll -->
 {% block content %}
 
  <div class="container">
@@ -16,9 +21,15 @@
                                 <h4 class="card-title">Ein kleiner Flitzer</h4>
                             </div>
                             <div class="box" style="width: 100%; height: 200px;">
+
+                                <!-- hier lade ich das Bild zum kleinen Flitzer hoch -->
+
                                 <img src="{{ url_for('static', filename = 'images/Kleine-Hunderassen.jpg') }}" style="width: 100%; height: 100%;">
                             </div>
                           <div class="card-body">
+
+                              <!-- Hier erstelle ich einen submit button, welchem ich den value "A" gebe. Dieser Value wird dann abgespeichert und mit den Hunden auf Übereinstimmungen überprüft -->
+
                             <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage1" value="A"></input>
                           </div>
                         </div>
@@ -27,9 +38,15 @@
                                 <h4 class="card-title">Eine mittlere Grösse</h4>
                             </div>
                             <div class="box" style="width: 100%; height: 200px;">
+
+                                <!-- hier lade ich das Bild zur mittleren Grösse hoch -->
+
                                 <img src="{{ url_for('static', filename = 'images/Download.jpeg') }}" style="width: 100%; height: 100%;">
                             </div>
                           <div class="card-body">
+
+                              <!-- Hier erstelle ich einen submit button, welchem ich den value "B" gebe. Dieser Value wird dann abgespeichert und mit den Hunden auf Übereinstimmungen überprüft -->
+
                             <input type="submit" class="btn btn-primary btn-lg btn-block" name="frage1" value="B"></input>
                           </div>
                         </div>
@@ -38,13 +55,22 @@
                                 <h4 class="card-title">Ein grosser Mocken</h4>
                             </div>
                             <div class="box" style="width: 100%; height: 200px;">
+
+                                <!-- hier lade ich das Bild zum grossen Mocken hoch -->
+
                                 <img src="{{ url_for('static', filename = 'images/hundeernaehrung_grosserhund.jpg') }}" style="width: 100%; height: 100%;">
                             </div>
                           <div class="card-body">
+
+                              <!-- Hier erstelle ich einen submit button, welchem ich den value "C" gebe. Dieser Value wird dann abgespeichert und mit den Hunden auf Übereinstimmungen überprüft -->
+
                             <input type="submit" class="btn btn-primary btn-lg btn-block"  name="frage1" value="C"></input>
                           </div>
                         </div>
                     </div>
+
+                    <!-- hier erstelle ich einen Button, welcher zur nächsten Frage weiterleitet -->
+
                     <button type="button" class="btn btn-success btn-lg btn-block" onclick="window.location.href='{{ url_for( 'frage2' ) }}';">Nächste Frage</button>
                 </form>
             </section>
@@ -52,4 +78,5 @@
     </div>
  </div>
 
+<!-- hier endet der Inhalt -->
 {% endblock %}

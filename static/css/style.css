@@ -1,18 +1,21 @@
+/* Hier verleihe ich dem ganzen Hintergrund eine angenehme blaue Farbe */
 body {
   background-color: lightblue;
 }
 
+/* Hier mache ich alle H1 Titel Weiss und zentriere diese */
 h1 {
   color: white;
   text-align: center;
 }
 
-
+/* hier mache ich die Box zu 30% und setzte die Höhe auf 200px */
 .box {
   width: 30%;
   height: 200px;
 }
 
+/*Hier mache ich das Bild zu 100%*/
 img {
   width: 100%;
   height: 100%;

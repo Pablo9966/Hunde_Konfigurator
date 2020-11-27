@@ -1,3 +1,5 @@
+<!-- hier ist die antwort -->
+
 {% extends "base.html" %}
 {% block content %}
 
@@ -8,12 +10,26 @@
         </div>
          <div id="fragen">
             <section>
-                <h3>Bitte beachte, dass die Hunde, anhand deiner Angaben, der Reihe nach sortiert wurden. </h3>
+                <h3>Bitte beachte, dass die Hunde, anhand deiner Angaben, der Reihe nach sortiert wurden.<br>
+                Die blaue Zahl auf der Rechten Seite zeigt dir, wie viele Übereinstimmungen du mit dieser Hunderasse hast.
+                </h3>
                     <ul class="list-group">
+
+                        <!-- hier iteriere ich durch die geordnete_rangordnung und die anzahl_uebereinstimmungen um die Hunde in der richtigen Reihenfolge und die anzahl Übereinstimmungen hervorzuholen -->
+
                         {%- for hund, anzahl in zip(geordnete_rangordnung, anzahl_uebereinstimmungen) -%}
+
+                        <!-- hier präsentiere ich die Hunde in der richtigen Reihenfolge -->
+
                             <li class="list-group-item d-flex justify-content-between align-items-center">{{ hund }}
+
+                        <!-- hier präsentiere ich die Anzahl übereinstimmungen mit dem jeweiligen Hund -->
+
                             <span class="badge badge-primary badge-pill">{{ anzahl }}</span>
                             </li>
+
+                        <!-- hier endet das iterieren -->
+
                         {% endfor %}
                     </ul>
             </section>
