@@ -6,6 +6,7 @@ import Daten_Antworten
 import hunderassen
 import collections
 import operator
+import json
 
 
 app = Flask("Hunde Konfigurator")
@@ -211,6 +212,19 @@ def antwort():
 # Hier hole ich die Anzahl Übereinstimmungen hervor
     anzahl_uebereinstimmungen = geordnete_rangordnung.values()
 
+# Hier erstelle ich die Daten für die globale Rangliste. Ich speichere jeweils den Hund auf Platz 1 in einer externen liste ab. Ich muss die Liste jedoch zuerst noch in ein str umwandeln, da ich dies sonst nicht in einem .txt file abspeichern kann.
+    with open("globale_rangliste.json") as json_file:
+        data = json.load(json_file)
+    erster_platz = list(geordnete_rangordnung)[:1]
+    erster_platz_1 = ''.join(erster_platz)
+    for key in data:
+        for test in key:
+            if erster_platz_1 == test:
+                print("yess")
+
+            else:
+                print("scheisse")
+
     return render_template('antwort.html', rangordnung=rangordnung, geordnete_rangordnung=geordnete_rangordnung, anzahl_uebereinstimmungen=anzahl_uebereinstimmungen, zip=zip)
 
 #Hier soll die Antworten_Liste gelöscht werden um den Konfigurator von neu zu starten.
@@ -218,9 +232,12 @@ def antwort():
 def delete():
     Daten_Antworten.Antworten_liste.clear()
 
-    print(Daten_Antworten.Antworten_liste)
+    if request.method == 'POST':
+        antwort_frage1 = request.form['frage1']
 
-    return render_template('frage1.html',)
+        Daten_Antworten.antwortensichern(antwort_frage1)
+
+    return render_template('frage1.html', frage1=frage1)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5002)
