@@ -213,6 +213,14 @@ def antwort():
 
     return render_template('antwort.html', rangordnung=rangordnung, geordnete_rangordnung=geordnete_rangordnung, anzahl_uebereinstimmungen=anzahl_uebereinstimmungen, zip=zip)
 
+#Hier soll die Antworten_Liste gelöscht werden um den Konfigurator von neu zu starten.
+@app.route('/delete', methods=['GET', 'POST'])
+def delete():
+    Daten_Antworten.Antworten_liste.clear()
+
+    print(Daten_Antworten.Antworten_liste)
+
+    return render_template('frage1.html',)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)

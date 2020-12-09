@@ -13,6 +13,11 @@
                 <h3>Bitte beachte, dass die Hunde, anhand deiner Angaben, der Reihe nach sortiert wurden.<br>
                 Die blaue Zahl auf der Rechten Seite zeigt dir, wie viele Übereinstimmungen du mit dieser Hunderasse hast.
                 </h3>
+
+                <!-- Hier ist der Button mit der Funktion '/delete'. Mit dieser werden die Antworten gelöscht und der Konfigurator neu gestartet -->
+                
+                <a href="/delete" class="btn btn-secondary" onclick="window.location.href='{{ url_for( 'frage1' ) }}';">Neu konfigurieren</a>
+
                     <ul class="list-group">
 
                         <!-- hier iteriere ich durch die geordnete_rangordnung und die anzahl_uebereinstimmungen um die Hunde in der richtigen Reihenfolge und die anzahl Übereinstimmungen hervorzuholen -->
@@ -34,6 +39,7 @@
                     </ul>
             </section>
          </div>
+    </div>
 </div>
 
 
