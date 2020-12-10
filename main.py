@@ -110,7 +110,7 @@ def antwort():
     result_2 = [i for i, j in zip(
         hunderassen.Französische_Bulldogge, antworten) if i == j]
     rang_2 = len(result_2)
-    rangordnung['Französische Bulldogge'] = rang_2
+    rangordnung['Französische_Bulldogge'] = rang_2
 
 # Chihuahua berechnen
     result_3 = [i for i, j in zip(hunderassen.Chihuahua, antworten) if i == j]
@@ -121,25 +121,25 @@ def antwort():
     result_4 = [i for i, j in zip(
         hunderassen.Golden_Retriever, antworten) if i == j]
     rang_4 = len(result_4)
-    rangordnung['Golden Retriever'] = rang_4
+    rangordnung['Golden_Retriever'] = rang_4
 
 # Australian Shepherd berechnen
     result_5 = [i for i, j in zip(
         hunderassen.Australian_Shepherd, antworten) if i == j]
     rang_5 = len(result_5)
-    rangordnung['Australian Shepherd'] = rang_5
+    rangordnung['Australian_Shepherd'] = rang_5
 
 # Jack Russel berechnen
     result_6 = [i for i, j in zip(
         hunderassen.Jack_Russel, antworten) if i == j]
     rang_6 = len(result_6)
-    rangordnung['Jack Russel'] = rang_6
+    rangordnung['Jack_Russel'] = rang_6
 
 # Deutscher Schäferhund berechnen
     result_7 = [i for i, j in zip(
         hunderassen.Deutscher_Schäferhund, antworten) if i == j]
     rang_7 = len(result_7)
-    rangordnung['Deutscher Schäferhund'] = rang_7
+    rangordnung['Deutscher_Schäferhund'] = rang_7
 
 # Havaneser berechnen
     result_8 = [i for i, j in zip(hunderassen.Havaneser, antworten) if i == j]
@@ -150,7 +150,7 @@ def antwort():
     result_9 = [i for i, j in zip(
         hunderassen.Yorkshire_Terrier, antworten) if i == j]
     rang_9 = len(result_9)
-    rangordnung['Yorkshire Terrier'] = rang_9
+    rangordnung['Yorkshire_Terrier'] = rang_9
 
 # Malteser berechnen
     result_10 = [i for i, j in zip(hunderassen.Malteser, antworten) if i == j]
@@ -161,7 +161,7 @@ def antwort():
     result_11 = [i for i, j in zip(
         hunderassen.Border_Collie, antworten) if i == j]
     rang_11 = len(result_11)
-    rangordnung['Border Collie'] = rang_11
+    rangordnung['Border_Collie'] = rang_11
 
 # Mops berechnen
     result_12 = [i for i, j in zip(hunderassen.Mops, antworten) if i == j]
@@ -177,13 +177,13 @@ def antwort():
     result_14 = [i for i, j in zip(
         hunderassen.Rhodesian_Ridgeback, antworten) if i == j]
     rang_14 = len(result_14)
-    rangordnung['Rhodesian Ridgeback'] = rang_14
+    rangordnung['Rhodesian_Ridgeback'] = rang_14
 
 # Berner Sennenhund berechnen
     result_15 = [i for i, j in zip(
         hunderassen.Berner_Sennenhund, antworten) if i == j]
     rang_15 = len(result_15)
-    rangordnung['Berner Sennenhund'] = rang_15
+    rangordnung['Berner_Sennenhund'] = rang_15
 
 # Dackel berechnen
     result_16 = [i for i, j in zip(hunderassen.Dackel, antworten) if i == j]
@@ -217,8 +217,8 @@ def antwort():
 
 # Hier erstelle ich die Daten für die globale Rangliste. Ich speichere jeweils den Hund auf Platz 1 in einer externen liste ab. Ich muss die Liste jedoch zuerst noch in ein str umwandeln, da ich dies sonst nicht in einem .txt file abspeichern kann.
     #hier öffne ich das json file
-    with open("globale_rangliste.json") as json_file:
-        data = json.load(json_file)
+    json_file = open("globale_rangliste.json", "r")
+    data = json.load(json_file)
 
     #hier hole ich den platz 1 hund aufgrund der antworten des users
     erster_platz = list(geordnete_rangordnung)[:1]
@@ -226,13 +226,18 @@ def antwort():
     #hier wandle ich die antwort in einen string um, um mit diesem im dictionary zu suchen
     erster_platz_1 = ''.join(erster_platz)
 
-    print(data[erster_platz_1]["Anzahl Platz 1"])
-
     #hier suche ich den aktuellen aktuellen platz 1 und addiere zum wert 1 dazue, da dieser nun erneut auf platz 1 gekommen ist
-    anzahl_platz_1 = data[erster_platz_1]["Anzahl Platz 1"]
+    anzahl_platz_1 = data[erster_platz_1]
+    print(erster_platz_1)
     neue_anzahl_platz_1 = anzahl_platz_1 +1
 
-    print(neue_anzahl_platz_1)
+    #hier update ich den aktuellen platz 1 wert mit dem neuen platz 1 wert
+    data[erster_platz_1] = neue_anzahl_platz_1
+
+    #hier schreibe ich das file neu mit den aktualisierten daten
+    with open("globale_rangliste.json", "w") as new_file:
+        json.dump(data, new_file)
+
 
     #hier update ich das json file mit der neuen anzahl platz 1 nummer zum entsprechenden Hund
     #json_object[erster_platz_1] = neue_anzahl_platz_1
@@ -269,7 +274,7 @@ def rangliste():
 
     #hier definiere ich x und y um nachher im ploty visuell darzustellen. leider ging das automatische nicht, da es mir immer nur den letztn oder ersten Hund angezeigt hat, daher habe ich es nun halbmanuell gemacht. nicht die schönste lösung, aber sie funktioniert.
         x = ['Labrador', 'Französische Bulldogge', 'Chihuahua', 'Golden Retriever', 'Australian Shepherd', 'Jack Russel', 'Deutscher Schäferhund', 'Havaneser', 'Yorkshire Terrier', 'Malteser', 'Border Collie', 'Mops', 'Beagle', 'Rhodesian Ridgeback', 'Berner Sennenhund', 'Dackel', 'Rottweiler', 'Zwergspitz', 'Boxer']
-        y = [daten["Labrador"]["Anzahl Platz 1"], daten["Französische_Bulldogge"]["Anzahl Platz 1"], daten["Chihuahua"]["Anzahl Platz 1"], daten["Golden_Retriever"]["Anzahl Platz 1"], daten["Australian_Shepherd"]["Anzahl Platz 1"], daten["Jack_Russel"]["Anzahl Platz 1"], daten["Deutscher_Schäferhund"]["Anzahl Platz 1"], daten["Havaneser"]["Anzahl Platz 1"], daten["Yorkshire_Terrier"]["Anzahl Platz 1"], daten["Malteser"]["Anzahl Platz 1"], daten["Border_Collie"]["Anzahl Platz 1"], daten["Mops"]["Anzahl Platz 1"], daten["Beagle"]["Anzahl Platz 1"], daten["Rhodesian_Ridgeback"]["Anzahl Platz 1"], daten["Berner_Sennenhund"]["Anzahl Platz 1"], daten["Dackel"]["Anzahl Platz 1"], daten["Rottweiler"]["Anzahl Platz 1"], daten["Zwergspitz"]["Anzahl Platz 1"], daten["Boxer"]["Anzahl Platz 1"]]
+        y = [daten["Labrador"], daten["Französische_Bulldogge"], daten["Chihuahua"], daten["Golden_Retriever"], daten["Australian_Shepherd"], daten["Jack_Russel"], daten["Deutscher_Schäferhund"], daten["Havaneser"], daten["Yorkshire_Terrier"], daten["Malteser"], daten["Border_Collie"], daten["Mops"], daten["Beagle"], daten["Rhodesian_Ridgeback"], daten["Berner_Sennenhund"], daten["Dackel"], daten["Rottweiler"], daten["Zwergspitz"], daten["Boxer"]]
 
     #hier lade ich die daten ins plotty und gib es nachher aus
     fig = px.Figure(data=[px.Bar(x=x, y=y, text=y, textposition='auto'),])
@@ -279,4 +284,4 @@ def rangliste():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5003)
+    app.run(debug=True, port=5004)
