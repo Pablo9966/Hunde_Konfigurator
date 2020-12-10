@@ -258,17 +258,18 @@ def delete():
 #Hier wird die globale Rangliste visuell ausgegeben
 @app.route('/rangliste', methods=['GET', 'GET'])
 def rangliste():
-    #Hier öffne ich das externe json file in dem die anzahl platz 1 aufgeliestet sind und alde das json als dictionary
-    with open('globale_rangliste.json', "r") as file:
+    #Hier öffne ich das externe json file in dem die anzahl platz 1 aufgeliestet sind und lade das json als dictionary
+    with open('globale_rangliste.json') as file:
         daten = json.load(file)
 
-    #hier möchte ich die hundenamen durchiterieren, damit ich nicht jeden namen manuell schreiben muss
-    for a in daten:
-        hunde_namen = a
+    #hier wollte ich ursprünglich die hundenamen durchiterieren, damit ich nicht jeden namen manuell schreiben muss
+    #for a in daten:
+    #    namen = a
+    #    print(namen)
 
-    #hier definiere ich x und y um nachher im ploty visuell darzustellen
-    x = ['Labrador', 'Französische Bulldogge', 'Chihuahua', 'Golden Retriever', 'Australian Shepherd', 'Jack Russel', 'Deutscher Schäferhund', 'Havaneser', 'Yorkshire Terrier', 'Malteser', 'Border Collie', 'Mops', 'Beagle', 'Rhodesian Ridgeback', 'Berner Sennenhund', 'Dackel', 'Rottweiler', 'Zwergspitz', 'Boxer']
-    y = [1, 1, 2, 3, 3, 2, 3, 4 ,4 ,3 , 2, 0, 0, 0, 3, 6, 2, 0, 1]
+    #hier definiere ich x und y um nachher im ploty visuell darzustellen. leider ging das automatische nicht, da es mir immer nur den letztn oder ersten Hund angezeigt hat, daher habe ich es nun halbmanuell gemacht. nicht die schönste lösung, aber sie funktioniert.
+        x = ['Labrador', 'Französische Bulldogge', 'Chihuahua', 'Golden Retriever', 'Australian Shepherd', 'Jack Russel', 'Deutscher Schäferhund', 'Havaneser', 'Yorkshire Terrier', 'Malteser', 'Border Collie', 'Mops', 'Beagle', 'Rhodesian Ridgeback', 'Berner Sennenhund', 'Dackel', 'Rottweiler', 'Zwergspitz', 'Boxer']
+        y = [daten["Labrador"]["Anzahl Platz 1"], daten["Französische_Bulldogge"]["Anzahl Platz 1"], daten["Chihuahua"]["Anzahl Platz 1"], daten["Golden_Retriever"]["Anzahl Platz 1"], daten["Australian_Shepherd"]["Anzahl Platz 1"], daten["Jack_Russel"]["Anzahl Platz 1"], daten["Deutscher_Schäferhund"]["Anzahl Platz 1"], daten["Havaneser"]["Anzahl Platz 1"], daten["Yorkshire_Terrier"]["Anzahl Platz 1"], daten["Malteser"]["Anzahl Platz 1"], daten["Border_Collie"]["Anzahl Platz 1"], daten["Mops"]["Anzahl Platz 1"], daten["Beagle"]["Anzahl Platz 1"], daten["Rhodesian_Ridgeback"]["Anzahl Platz 1"], daten["Berner_Sennenhund"]["Anzahl Platz 1"], daten["Dackel"]["Anzahl Platz 1"], daten["Rottweiler"]["Anzahl Platz 1"], daten["Zwergspitz"]["Anzahl Platz 1"], daten["Boxer"]["Anzahl Platz 1"]]
 
     #hier lade ich die daten ins plotty und gib es nachher aus
     fig = px.Figure(data=[px.Bar(x=x, y=y, text=y, textposition='auto'),])
