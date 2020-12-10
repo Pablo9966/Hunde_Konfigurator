@@ -1,23 +1,59 @@
-[
   {
-    "Labrador": 0,
-    "Französische_Bulldogge": 0,
-    "Chihuahua": 0,
-    "Golden_Retriever": 0,
-    "Australian_Shepherd": 0,
-    "Jack_Russel": 0,
-    "Deutscher_Schäferhund": 0,
-    "Havaneser": 0,
-    "Yorkshire_Terrier": 0,
-    "Malteser": 0,
-    "Border_Collie": 0,
-    "Mops": 0,
-    "Beagle": 0,
-    "Rhodesian_Ridgeback": 0,
-    "Berner_Sennenhund": 0,
-    "Dackel": 0,
-    "Rottweiler": 0,
-    "Zwergspitz": 0,
-    "Boxer": 0
+    "Labrador": {
+      "Anzahl Platz 1" : 5
+    },
+    "Französische_Bulldogge": {
+      "Anzahl Platz 1" : 0
+    },
+    "Chihuahua": {
+      "Anzahl Platz 1" : 0
+    },
+    "Golden_Retriever": {
+      "Anzahl Platz 1" : 3
+    },
+    "Australian_Shepherd": {
+      "Anzahl Platz 1" : 0
+    },
+    "Jack_Russel": {
+      "Anzahl Platz 1" : 2
+    },
+    "Deutscher_Schäferhund": {
+      "Anzahl Platz 1" : 0
+    },
+    "Havaneser": {
+      "Anzahl Platz 1" : 0
+    },
+    "Yorkshire_Terrier": {
+      "Anzahl Platz 1" : 0
+    },
+    "Malteser": {
+      "Anzahl Platz 1" : 0
+    },
+    "Border_Collie": {
+      "Anzahl Platz 1" : 0
+    },
+    "Mops": {
+      "Anzahl Platz 1" : 0
+    },
+    "Beagle": {
+      "Anzahl Platz 1" : 0
+    },
+    "Rhodesian_Ridgeback": {
+      "Anzahl Platz 1" : 0
+    },
+    "Berner_Sennenhund": {
+      "Anzahl Platz 1" : 0
+    },
+    "Dackel": {
+      "Anzahl Platz 1" : 0
+    },
+    "Rottweiler": {
+      "Anzahl Platz 1" : 0
+    },
+    "Zwergspitz": {
+      "Anzahl Platz 1" : 0
+    },
+    "Boxer": {
+      "Anzahl Platz 1" : 0
+    }
   }
-]

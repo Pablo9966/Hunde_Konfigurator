@@ -7,9 +7,12 @@ import hunderassen
 import collections
 import operator
 import json
+import plotly.graph_objects as px
+import plotly
 
 
 app = Flask("Hunde Konfigurator")
+
 
 # Hier hole ich die richtigen Antworten und speichere diese schön einfach als neue liste
 antworten = Daten_Antworten.Antworten_liste
@@ -213,17 +216,30 @@ def antwort():
     anzahl_uebereinstimmungen = geordnete_rangordnung.values()
 
 # Hier erstelle ich die Daten für die globale Rangliste. Ich speichere jeweils den Hund auf Platz 1 in einer externen liste ab. Ich muss die Liste jedoch zuerst noch in ein str umwandeln, da ich dies sonst nicht in einem .txt file abspeichern kann.
+    #hier öffne ich das json file
     with open("globale_rangliste.json") as json_file:
         data = json.load(json_file)
-    erster_platz = list(geordnete_rangordnung)[:1]
-    erster_platz_1 = ''.join(erster_platz)
-    for key in data:
-        for test in key:
-            if erster_platz_1 == test:
-                print("yess")
 
-            else:
-                print("scheisse")
+    #hier hole ich den platz 1 hund aufgrund der antworten des users
+    erster_platz = list(geordnete_rangordnung)[:1]
+
+    #hier wandle ich die antwort in einen string um, um mit diesem im dictionary zu suchen
+    erster_platz_1 = ''.join(erster_platz)
+
+    print(data[erster_platz_1]["Anzahl Platz 1"])
+
+    #hier suche ich den aktuellen aktuellen platz 1 und addiere zum wert 1 dazue, da dieser nun erneut auf platz 1 gekommen ist
+    anzahl_platz_1 = data[erster_platz_1]["Anzahl Platz 1"]
+    neue_anzahl_platz_1 = anzahl_platz_1 +1
+
+    print(neue_anzahl_platz_1)
+
+    #hier update ich das json file mit der neuen anzahl platz 1 nummer zum entsprechenden Hund
+    #json_object[erster_platz_1] = neue_anzahl_platz_1
+
+    #a_file = open("globale_rangliste.json", "w")
+    #json.dump(json_object, a_file)
+    #a_file.close()
 
     return render_template('antwort.html', rangordnung=rangordnung, geordnete_rangordnung=geordnete_rangordnung, anzahl_uebereinstimmungen=anzahl_uebereinstimmungen, zip=zip)
 
@@ -238,6 +254,28 @@ def delete():
         Daten_Antworten.antwortensichern(antwort_frage1)
 
     return render_template('frage1.html', frage1=frage1)
+
+#Hier wird die globale Rangliste visuell ausgegeben
+@app.route('/rangliste', methods=['GET', 'GET'])
+def rangliste():
+    #Hier öffne ich das externe json file in dem die anzahl platz 1 aufgeliestet sind und alde das json als dictionary
+    with open('globale_rangliste.json', "r") as file:
+        daten = json.load(file)
+
+    #hier möchte ich die hundenamen durchiterieren, damit ich nicht jeden namen manuell schreiben muss
+    for a in daten:
+        hunde_namen = a
+
+    #hier definiere ich x und y um nachher im ploty visuell darzustellen
+    x = ['Labrador', 'Französische Bulldogge', 'Chihuahua', 'Golden Retriever', 'Australian Shepherd', 'Jack Russel', 'Deutscher Schäferhund', 'Havaneser', 'Yorkshire Terrier', 'Malteser', 'Border Collie', 'Mops', 'Beagle', 'Rhodesian Ridgeback', 'Berner Sennenhund', 'Dackel', 'Rottweiler', 'Zwergspitz', 'Boxer']
+    y = [1, 1, 2, 3, 3, 2, 3, 4 ,4 ,3 , 2, 0, 0, 0, 3, 6, 2, 0, 1]
+
+    #hier lade ich die daten ins plotty und gib es nachher aus
+    fig = px.Figure(data=[px.Bar(x=x, y=y, text=y, textposition='auto'),])
+    div = plotly.io.to_html(fig, include_plotlyjs=True, full_html=False)
+
+    return render_template('rangliste.html', plotly_div=div)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5002)
