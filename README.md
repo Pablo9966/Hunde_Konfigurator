@@ -13,3 +13,8 @@ Laden Sie den gesamten Zip-Ordner herunter und entpacken Sie den Inhalt. Anschli
 
 Benutzung:
 Wenn Sie auf der entsprechenden Internetseite sind, drücken Sie auf "Jetzt suchen". Beantworten Sie die Fragen und drücken Sie jeweils, nachdem Sie eine Antwort gedrückt haben, auf "Nächste Frage". Haben Sie alle 6 Fragen beantwortet, erhalten Sie eine Auswahl an Hunden. Diese sind der Reihe nach sortiert, sprich der Hund, welcher am besten zu Ihnen passt, kommt als Erstes. Auf der Rechten Seite sehen Sie zudem, wie viele Übereinstimmung Sie mit dem jeweiligen Hund haben.
+
+Github:
+Für dieses Projekt wurden 2 github-repositories erstellt, da beim ersten etwas nicht mehr funktioniert hat und ich es neu installieren musste. 
+Altes github: https://github.com/Pablo9966/PROG2
+Neues (aktuelles) github: https://github.com/Pablo9966/Hunde_Konfigurator

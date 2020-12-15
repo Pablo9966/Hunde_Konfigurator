@@ -268,13 +268,15 @@ def rangliste():
         daten = json.load(file)
 
     #hier wollte ich ursprünglich die hundenamen durchiterieren, damit ich nicht jeden namen manuell schreiben muss
-    #for a in daten:
-    #    namen = a
-    #    print(namen)
+    x = []
+    y = []
+    for hund, punkte in daten.items():
+        x.append(hund.replace("_", " "))
+        y.append(punkte)
 
     #hier definiere ich x und y um nachher im ploty visuell darzustellen. leider ging das automatische nicht, da es mir immer nur den letztn oder ersten Hund angezeigt hat, daher habe ich es nun halbmanuell gemacht. nicht die schönste lösung, aber sie funktioniert.
-        x = ['Labrador', 'Französische Bulldogge', 'Chihuahua', 'Golden Retriever', 'Australian Shepherd', 'Jack Russel', 'Deutscher Schäferhund', 'Havaneser', 'Yorkshire Terrier', 'Malteser', 'Border Collie', 'Mops', 'Beagle', 'Rhodesian Ridgeback', 'Berner Sennenhund', 'Dackel', 'Rottweiler', 'Zwergspitz', 'Boxer']
-        y = [daten["Labrador"], daten["Französische_Bulldogge"], daten["Chihuahua"], daten["Golden_Retriever"], daten["Australian_Shepherd"], daten["Jack_Russel"], daten["Deutscher_Schäferhund"], daten["Havaneser"], daten["Yorkshire_Terrier"], daten["Malteser"], daten["Border_Collie"], daten["Mops"], daten["Beagle"], daten["Rhodesian_Ridgeback"], daten["Berner_Sennenhund"], daten["Dackel"], daten["Rottweiler"], daten["Zwergspitz"], daten["Boxer"]]
+    #    x = ['Labrador', 'Französische Bulldogge', 'Chihuahua', 'Golden Retriever', 'Australian Shepherd', 'Jack Russel', 'Deutscher Schäferhund', 'Havaneser', 'Yorkshire Terrier', 'Malteser', 'Border Collie', 'Mops', 'Beagle', 'Rhodesian Ridgeback', 'Berner Sennenhund', 'Dackel', 'Rottweiler', 'Zwergspitz', 'Boxer']
+    #   y = [daten["Labrador"], daten["Französische_Bulldogge"], daten["Chihuahua"], daten["Golden_Retriever"], daten["Australian_Shepherd"], daten["Jack_Russel"], daten["Deutscher_Schäferhund"], daten["Havaneser"], daten["Yorkshire_Terrier"], daten["Malteser"], daten["Border_Collie"], daten["Mops"], daten["Beagle"], daten["Rhodesian_Ridgeback"], daten["Berner_Sennenhund"], daten["Dackel"], daten["Rottweiler"], daten["Zwergspitz"], daten["Boxer"]]
 
     #hier lade ich die daten ins plotty und gib es nachher aus
     fig = px.Figure(data=[px.Bar(x=x, y=y, text=y, textposition='auto'),])
@@ -284,4 +286,4 @@ def rangliste():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5004)
+    app.run(debug=True, port=5005)
