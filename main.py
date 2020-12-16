@@ -17,7 +17,7 @@ app = Flask("Hunde Konfigurator")
 # Hier hole ich die richtigen Antworten und speichere diese schön einfach als neue liste
 antworten = Daten_Antworten.Antworten_liste
 
-# hier erstelle ich die Rangliste der Hunde. Unten im Programm speichere ich hier die Anzahl Übereinstimmungen der Antworten des Users mit den vordefinierten Atributen der Hunde
+# hier erstelle ich die Rangliste der Hunde. Die liste wird in im file hunderassen_ueberpruefen abgefüllt und hier wieder zurückgegeben
 rangordnung = hunderassen_ueberpruefen.rangordnung_hunderassen_ueberpruefen
 
 # hier starte ich die erste seite
@@ -96,7 +96,7 @@ def frage6():
 @app.route('/antwort')
 def antwort():
 
-# Hier berechne ich jeweils die Anzahl Übereinstimmungen der Antworten des Users mit dem jeweiligen Hund.
+# Hier berechne ich jeweils die Anzahl Übereinstimmungen der Antworten des Users mit dem jeweiligen Hund. Dies geschieht alles im externen file hunderassen_ueberpruefen
 # Labrador berechnen
     hunderassen_ueberpruefen.hunderassenueberpruefen("Labrador")
 
@@ -156,8 +156,7 @@ def antwort():
 
 
 # Hier ordne ich das Dictionary antworten nach der Anzahl Übereinstimmungen
-    geordnete_rangordnung = collections.OrderedDict(
-        sorted(rangordnung.items(), key=operator.itemgetter(1), reverse=True))
+    geordnete_rangordnung = collections.OrderedDict(sorted(rangordnung.items(), key=operator.itemgetter(1), reverse=True))
 
 # Hier hole ich die Anzahl Übereinstimmungen hervor
     anzahl_uebereinstimmungen = geordnete_rangordnung.values()

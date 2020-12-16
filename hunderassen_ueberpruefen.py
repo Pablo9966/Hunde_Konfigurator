@@ -7,7 +7,6 @@ antworten = Daten_Antworten.Antworten_liste
 #hier hole ich die hunderassen um die rangordnung erstellen zu können
 daten = open("hunderassen.json")
 hunderassen_1 = json.load(daten)
-print(hunderassen_1["Labrador"])
 
 #hier erstelle ich das dictionary in dem die rangordnung erstellt werden soll
 rangordnung_hunderassen_ueberpruefen = {}
