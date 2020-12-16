@@ -3,7 +3,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 import Daten_Antworten
-import hunderassen
+import hunderassen_ueberpruefen
 import collections
 import operator
 import json
@@ -18,19 +18,15 @@ app = Flask("Hunde Konfigurator")
 antworten = Daten_Antworten.Antworten_liste
 
 # hier erstelle ich die Rangliste der Hunde. Unten im Programm speichere ich hier die Anzahl Übereinstimmungen der Antworten des Users mit den vordefinierten Atributen der Hunde
-rangordnung = {}
+rangordnung = hunderassen_ueberpruefen.rangordnung_hunderassen_ueberpruefen
 
 # hier starte ich die erste seite
-
-
 @app.route('/')
 @app.route('/home')
 def home():
     return render_template('home.html')
 
 # hier starte ich die frage1. hier wird zudem die Antwort des Users mit dem Algorithmus antwortensichern aus der Datei Daten_Antworten in der Liste Antworten_Liste abgespeichert.
-
-
 @app.route('/frage1', methods=['GET', 'POST'])
 def frage1():
     if request.method == 'POST':
@@ -100,112 +96,63 @@ def frage6():
 @app.route('/antwort')
 def antwort():
 
-    # Hier berechne ich jeweils die Anzahl Übereinstimmungen der Antworten des Users mit dem jeweiligen Hund. Anschliessend speichere ich diese Zahl im  zuvor definirten Dictionary ab. Dies wird für jeden Hund durchgeführt.
-    # Labrador berechnen
-    result_1 = [i for i, j in zip(hunderassen.Labrador, antworten) if i == j]
-    rang_1 = len(result_1)
-    rangordnung['Labrador'] = rang_1
+# Hier berechne ich jeweils die Anzahl Übereinstimmungen der Antworten des Users mit dem jeweiligen Hund.
+# Labrador berechnen
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Labrador")
 
 # Französische Bulldogge brechnen
-    result_2 = [i for i, j in zip(
-        hunderassen.Französische_Bulldogge, antworten) if i == j]
-    rang_2 = len(result_2)
-    rangordnung['Französische_Bulldogge'] = rang_2
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Franzoesische Bulldogge")
 
 # Chihuahua berechnen
-    result_3 = [i for i, j in zip(hunderassen.Chihuahua, antworten) if i == j]
-    rang_3 = len(result_3)
-    rangordnung['Chihuahua'] = rang_3
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Chihuahua")
 
 # Golden Retriever berechnen
-    result_4 = [i for i, j in zip(
-        hunderassen.Golden_Retriever, antworten) if i == j]
-    rang_4 = len(result_4)
-    rangordnung['Golden_Retriever'] = rang_4
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Golden Retriever")
 
 # Australian Shepherd berechnen
-    result_5 = [i for i, j in zip(
-        hunderassen.Australian_Shepherd, antworten) if i == j]
-    rang_5 = len(result_5)
-    rangordnung['Australian_Shepherd'] = rang_5
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Australian Shepherd")
 
 # Jack Russel berechnen
-    result_6 = [i for i, j in zip(
-        hunderassen.Jack_Russel, antworten) if i == j]
-    rang_6 = len(result_6)
-    rangordnung['Jack_Russel'] = rang_6
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Jack Russel")
 
 # Deutscher Schäferhund berechnen
-    result_7 = [i for i, j in zip(
-        hunderassen.Deutscher_Schäferhund, antworten) if i == j]
-    rang_7 = len(result_7)
-    rangordnung['Deutscher_Schäferhund'] = rang_7
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Deutscher Schaeferhund")
 
 # Havaneser berechnen
-    result_8 = [i for i, j in zip(hunderassen.Havaneser, antworten) if i == j]
-    rang_8 = len(result_8)
-    rangordnung['Havaneser'] = rang_8
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Havaneser")
 
 # Yorkshire Terrier berechnen
-    result_9 = [i for i, j in zip(
-        hunderassen.Yorkshire_Terrier, antworten) if i == j]
-    rang_9 = len(result_9)
-    rangordnung['Yorkshire_Terrier'] = rang_9
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Yorkshire Terrier")
 
 # Malteser berechnen
-    result_10 = [i for i, j in zip(hunderassen.Malteser, antworten) if i == j]
-    rang_10 = len(result_10)
-    rangordnung['Malteser'] = rang_10
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Malteser")
 
 # Border Collie berechnen
-    result_11 = [i for i, j in zip(
-        hunderassen.Border_Collie, antworten) if i == j]
-    rang_11 = len(result_11)
-    rangordnung['Border_Collie'] = rang_11
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Border Collie")
 
 # Mops berechnen
-    result_12 = [i for i, j in zip(hunderassen.Mops, antworten) if i == j]
-    rang_12 = len(result_12)
-    rangordnung['Mops'] = rang_12
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Mops")
 
 # Beagle berechnen
-    result_13 = [i for i, j in zip(hunderassen.Beagle, antworten) if i == j]
-    rang_13 = len(result_13)
-    rangordnung['Beagle'] = rang_13
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Beagle")
 
 # Rhodesian Ridgeback berechnen
-    result_14 = [i for i, j in zip(
-        hunderassen.Rhodesian_Ridgeback, antworten) if i == j]
-    rang_14 = len(result_14)
-    rangordnung['Rhodesian_Ridgeback'] = rang_14
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Rhodesian Ridgeback")
 
 # Berner Sennenhund berechnen
-    result_15 = [i for i, j in zip(
-        hunderassen.Berner_Sennenhund, antworten) if i == j]
-    rang_15 = len(result_15)
-    rangordnung['Berner_Sennenhund'] = rang_15
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Berner Sennenhund")
 
 # Dackel berechnen
-    result_16 = [i for i, j in zip(hunderassen.Dackel, antworten) if i == j]
-    rang_16 = len(result_16)
-    rangordnung['Dackel'] = rang_16
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Dackel")
 
 # Rottweiler Berechnen
-    result_17 = [i for i, j in zip(
-        hunderassen.Rottweiler, antworten) if i == j]
-    rang_17 = len(result_17)
-    rangordnung['Rottweiler'] = rang_17
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Rottweiler")
 
 # Zwergspitz berechnen
-    result_18 = [i for i, j in zip(
-        hunderassen.Zwergspitz, antworten) if i == j]
-    rang_18 = len(result_18)
-    rangordnung['Zwergspitz'] = rang_18
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Zwergspitz")
 
 # Boxer berechnen
-    result_19 = [i for i, j in zip(hunderassen.Boxer, antworten) if i == j]
-    rang_19 = len(result_19)
-    rangordnung['Boxer'] = rang_19
+    hunderassen_ueberpruefen.hunderassenueberpruefen("Boxer")
 
 
 # Hier ordne ich das Dictionary antworten nach der Anzahl Übereinstimmungen
@@ -228,7 +175,6 @@ def antwort():
 
     #hier suche ich den aktuellen aktuellen platz 1 und addiere zum wert 1 dazue, da dieser nun erneut auf platz 1 gekommen ist
     anzahl_platz_1 = data[erster_platz_1]
-    print(erster_platz_1)
     neue_anzahl_platz_1 = anzahl_platz_1 +1
 
     #hier update ich den aktuellen platz 1 wert mit dem neuen platz 1 wert
@@ -237,14 +183,6 @@ def antwort():
     #hier schreibe ich das file neu mit den aktualisierten daten
     with open("globale_rangliste.json", "w") as new_file:
         json.dump(data, new_file)
-
-
-    #hier update ich das json file mit der neuen anzahl platz 1 nummer zum entsprechenden Hund
-    #json_object[erster_platz_1] = neue_anzahl_platz_1
-
-    #a_file = open("globale_rangliste.json", "w")
-    #json.dump(json_object, a_file)
-    #a_file.close()
 
     return render_template('antwort.html', rangordnung=rangordnung, geordnete_rangordnung=geordnete_rangordnung, anzahl_uebereinstimmungen=anzahl_uebereinstimmungen, zip=zip)
 
@@ -267,16 +205,12 @@ def rangliste():
     with open('globale_rangliste.json') as file:
         daten = json.load(file)
 
-    #hier wollte ich ursprünglich die hundenamen durchiterieren, damit ich nicht jeden namen manuell schreiben muss
+    #hier iteriere ich durch die hundenamen, damit ich nicht jeden namen manuell schreiben muss und lade diese jeweils für x und y. gleichzeitig ersetze ich "_" mit " ".
     x = []
     y = []
     for hund, punkte in daten.items():
-        x.append(hund.replace("_", " "))
+        x.append(hund)
         y.append(punkte)
-
-    #hier definiere ich x und y um nachher im ploty visuell darzustellen. leider ging das automatische nicht, da es mir immer nur den letztn oder ersten Hund angezeigt hat, daher habe ich es nun halbmanuell gemacht. nicht die schönste lösung, aber sie funktioniert.
-    #    x = ['Labrador', 'Französische Bulldogge', 'Chihuahua', 'Golden Retriever', 'Australian Shepherd', 'Jack Russel', 'Deutscher Schäferhund', 'Havaneser', 'Yorkshire Terrier', 'Malteser', 'Border Collie', 'Mops', 'Beagle', 'Rhodesian Ridgeback', 'Berner Sennenhund', 'Dackel', 'Rottweiler', 'Zwergspitz', 'Boxer']
-    #   y = [daten["Labrador"], daten["Französische_Bulldogge"], daten["Chihuahua"], daten["Golden_Retriever"], daten["Australian_Shepherd"], daten["Jack_Russel"], daten["Deutscher_Schäferhund"], daten["Havaneser"], daten["Yorkshire_Terrier"], daten["Malteser"], daten["Border_Collie"], daten["Mops"], daten["Beagle"], daten["Rhodesian_Ridgeback"], daten["Berner_Sennenhund"], daten["Dackel"], daten["Rottweiler"], daten["Zwergspitz"], daten["Boxer"]]
 
     #hier lade ich die daten ins plotty und gib es nachher aus
     fig = px.Figure(data=[px.Bar(x=x, y=y, text=y, textposition='auto'),])

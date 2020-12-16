@@ -1,0 +1,21 @@
+{
+  "Labrador": ["B", "A", "C", "B", "D", "A"],
+  "Franzoesische Bulldogge": ["A", "A", "B", "A", "D", "B"],
+  "Chihuahua": ["A", "B", "B", "B", "D", "B"],
+  "Golden Retriever": ["C", "B", "C", "C", "D", "A"],
+  "Australian Shepherd": ["B", "B", "D", "C", "B", "A"],
+  "Jack Russel": ["A", "A", "B", "A", "D", "B"],
+  "Deutscher Schaeferhund": ["C", "B", "D", "C", "A", "B"],
+  "Havaneser": ["A", "B", "B", "B", "D", "A"],
+  "Yorkshire Terrier": ["A", "B", "B", "B", "D", "B"],
+  "Malteser": ["A", "C", "B", "C", "D", "B"],
+  "Border Collie": ["C", "C", "C", "D", "D", "A"],
+  "Mops": ["A", "A", "B", "A", "D", "B"],
+  "Beagle": ["B", "A", "C", "B", "C", "B"],
+  "Rhodesian Ridgeback": ["C", "A", "D", "B", "A", "A"],
+  "Berner Sennenhund": ["C", "C", "B", "D", "A", "A"],
+  "Dackel": ["A", "A", "B", "A", "D", "B"],
+  "Rottweiler": ["C", "A", "C", "B", "A", "A"],
+  "Zwergspitz": ["A", "B", "B", "B", "D", "B"],
+  "Boxer": ["B", "A", "C", "B", "A", "A"]
+}
