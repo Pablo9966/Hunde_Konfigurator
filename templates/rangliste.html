@@ -7,7 +7,13 @@
           <div class="jumbotron">
             <h1>Globale Rangliste</h1>
             <p class="lead">Hier kannst du sehen, wie oft ein Hund jeweils auf Platz 1 gekommen ist und somit als beliebtester Hund gilt.</p>
+
+              <!--Hier der Button um zurück zur Auswertung zu kommen-->
+
               <a href="/antwort" class="btn btn-secondary" onclick="window.location.href='{{ url_for( 'antwort' ) }}';">Zurück zur Auswertung</a>
+
+              <!--Hier ist das Plotty-->
+
             {{ plotly_div|safe }}
           </div>
         </main>
